@@ -1,21 +1,18 @@
-
 <!DOCTYPE html>
 {% include 'base.html' %}
 <html lang="ja-jp">
 <head>
+
     <meta charset="UTF-8">
-    <title>postsのインデックス</title>
+    <title>ガウディーズ Web</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 </head>
 <body>
-    <br><br>
-    {% for post in posts.all %}
-    <h1>{{post.title}}</h1>
-    <br><br>
-    <h2>{{post.published}}</h2>
-    <br><br>
 
-    <p>{{post.body}}</p>
-    {% endfor %}
+    <h1>最新のお知らせ</h1>
+    {{ last_post.title }}
+
 </body>
 </html>
