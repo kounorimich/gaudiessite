@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-{% include 'base.html' %}
-<html lang="ja-jp">
-<head>
+{% extends 'base.html' %}
 
-    <meta charset="UTF-8">
-    <title>ガウディーズ Web</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-</head>
+{% load static %}
+{% block page_title %}ガウディーズ{% endblock %}
+
 <body>
-
+    {% block extra_contents %}
     <h1>最新のお知らせ</h1>
     {{ last_post.title }}
-
+    <img src="{% static 'top/chotto_pinboke.png' %}" class="rounded">
+    {% endblock %}
 </body>
-</html>

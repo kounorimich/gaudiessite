@@ -1,16 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">ガウディーズ（本当はロゴとかがよい？）</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="{ url 'top:top' }">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Profile</a>
-      <a class="nav-item nav-link" href="#">Music</a>
-      <a class="nav-item nav-link" href="{% url 'posts:index' %}">Posts</a>
-      <a class="nav-item nav-link disabled" href="#">Live</a>
-      <a class="nav-item nav-link" href="{% url 'admin:index' %}">管理者用</a>  <!-- nameの指定ではなぜか飛べない.... -->
-    </div>
-  </div>
-</nav>
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja-jp">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block page_title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'base_style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="{% static 'logo_kari.png' %}" alt="" style = 'max-height: 100px;'></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{ url 'top:top' }">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#">Profile</a>
+                <a class="nav-item nav-link" href="#">Music</a>
+                <a class="nav-item nav-link" href="{% url 'posts:index' %}">Posts</a>
+                <a class="nav-item nav-link disabled" href="#">Live</a>
+                <a class="nav-item nav-link" href="{% url 'admin:index' %}">管理者用</a>  <!-- nameの指定ではなぜか飛べない.... -->
+            </div>
+        </div>
+    </nav>
+    {% block extra_contents %}{% endblock %}
+</body>
+</html>

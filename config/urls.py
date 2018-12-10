@@ -18,10 +18,11 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
 from django.views.generic import TemplateView, RedirectView
+from . import settings
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls, name='hoge'),
+    path('admin/', admin.site.urls),  # 管理者サイトの名前は、デフォルトで'admin:index'になっている
     path('top/', include('top.urls')),
     path('posts/', include('posts.urls')),
     re_path(r'\w*',  RedirectView.as_view(url='/top/'), name='redirect_to_index'),
@@ -29,3 +30,10 @@ urlpatterns = [
     #path(r'^$', RedirectView.as_view(url='/index/'), name='redirect_to_index'),
     #url(r'^$', RedirectView.as_view(url='/index/'), name='redirect_to_index')
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ]

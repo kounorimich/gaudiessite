@@ -1,13 +1,7 @@
-
-<!DOCTYPE html>
-{% include 'base.html' %}
-<html lang="ja-jp">
-<head>
-    <meta charset="UTF-8">
-    <title>postsのインデックス</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block page_title %}Posts{% endblock %}
+{% block extra_contents %}
     <br><br>
     {% for post in posts.all %}
     <h1>{{post.title}}</h1>
@@ -17,5 +11,4 @@
 
     <p>{{post.body}}</p>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
