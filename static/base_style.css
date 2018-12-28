@@ -1,8 +1,12 @@
 body{
     font-family: 'Lato', 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
-    background-image:url('/top/chotto_pinboke.png');
+
 }
 .navbar{
-    height:100px
-    border-bottom: 5px solid black;
+    height:150px
+    border:10px solid black;
+    }
+
+.navbar-brand{
+    border:2px solid black;
     }

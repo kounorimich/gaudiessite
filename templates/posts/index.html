@@ -8,7 +8,9 @@
     <br><br>
     <h2>{{post.published}}</h2>
     <br><br>
-
+    {% if post.image %}}
+    <img src="{{ post.image.url }}">
+    {% endif %}
     <p>{{post.body}}</p>
     {% endfor %}
 {% endblock %}

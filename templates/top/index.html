@@ -3,11 +3,26 @@
 
 {% load static %}
 {% block page_title %}ガウディーズ{% endblock %}
-
+{% block extra_css %}<link rel="stylesheet" type="text/css" href="{% static '/top/top.css' %}">{% endblock %}
 <body>
     {% block extra_contents %}
-    <h1>最新のお知らせ</h1>
-    {{ last_post.title }}
-    <img src="{% static 'top/chotto_pinboke.png' %}" class="rounded">
+    <div class="main">
+        <div class="fixed_post post">
+        <h1>{{ fixed_post.title }}</h1>
+        <img src="{{ fixed_post.image.url }}" class="rounded img-fluid post-image" style = "max-height: 500px;">
+        <p>{{fixed_post.summary}}</p>
+        </div>
+        <br><br>
+        <div class="border"></div>
+        {% if last_post %}
+        <div class="last_post post">
+            <h1></h1>
+            {{ last_post.title }}
+            {% if last_post.image %}
+            <img src="{{ last_post.image.url }}" class="rounded img-fluid" style = "max-height: 200px;">
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
     {% endblock %}
 </body>

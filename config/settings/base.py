@@ -13,8 +13,11 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+'''このファイルの存在する階層に合わせて
+書かなければいけない'''
+PROJECT_NAME = os.path.basename(BASE_DIR) #gaudiessiteのこと
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -26,6 +29,8 @@ SECRET_KEY = '*y1ps@tj-o5id21w0m!5f^dz3jos325$ob#rja5ql4z2(u9tx4'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+INTERNAL_IPS = []
 
 
 # Application definition
@@ -123,3 +128,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+#  STATIC_ROOT = '/var/www/{}/media'.format(PROJECT_NAME)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+
+
+#django-debug-toolbarを利用するための設定
+
+if DEBUG:
+    def show_toolbar(request):
+        return True
+
+    INSTALLED_APPS += (
+        'debug_toolbar',
+    )
+    MIDDLEWARE += (
+        'debug_toolbar.middleware.DebugToolbarMiddleware',
+    )
+    DEBUG_TOOLBAR_CONFIG = {
+        'SHOW_TOOLBAR_CALLBACK': show_toolbar,
+    }

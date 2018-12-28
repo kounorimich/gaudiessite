@@ -13,23 +13,30 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-import re
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include, re_path
 from django.conf.urls import url
-from django.views.generic import TemplateView, RedirectView
-from . import settings
+from django.views.generic import RedirectView
+from django.conf import settings
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # 管理者サイトの名前は、デフォルトで'admin:index'になっている
     path('top/', include('top.urls')),
     path('posts/', include('posts.urls')),
-    re_path(r'\w*',  RedirectView.as_view(url='/top/'), name='redirect_to_index'),
+
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     #path(r'^$', RedirectView.as_view(url='/index/'), name='redirect_to_index'),
     #url(r'^$', RedirectView.as_view(url='/index/'), name='redirect_to_index')
-]
+
+urlpatterns += [re_path(r'\w*',  RedirectView.as_view(url='/top/'), name='redirect_to_index')]
+
+
+
 
 if settings.DEBUG:
     import debug_toolbar
