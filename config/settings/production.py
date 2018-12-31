@@ -39,3 +39,19 @@ LOGGING = {
     },
 
 }
+
+DATABASES = {  # 本番環境ではMySQLを使うので、DB設定を上書き
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gaudiessite',
+        'USER': 'gaudies',
+        'PASSWORD': 'shootthesinger',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'ATOMIC_REQUESTS': True,
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+            'sql_mode': 'TRADITIONAL,NO_AUTO_VALUE_ON_ZERO',
+        }
+    }
+}
