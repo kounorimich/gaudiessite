@@ -14,7 +14,7 @@ ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = False
+DEBUG = True
 
 STATIC_ROOT = '/var/www/{}/static'.format(PROJECT_NAME)
 MEDIA_ROOT = '/var/www/{}/media'.format(PROJECT_NAME)
