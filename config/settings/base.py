@@ -23,7 +23,7 @@ PROJECT_NAME = os.path.basename(BASE_DIR) #gaudiessiteのこと
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*y1ps@tj-o5id21w0m!5f^dz3jos325$ob#rja5ql4z2(u9tx4'
+# SECRET_KEY = '*y1ps@tj-o5id21w0m!5f^dz3jos325$ob#rja5ql4z2(u9tx4' これは元のやつ
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
