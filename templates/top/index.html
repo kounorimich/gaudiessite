@@ -8,9 +8,11 @@
     {% block extra_contents %}
     <div class="main">
         <div class="fixed_post post">
-        <h1>{{ fixed_post.title }}</h1>
+        {% if fixed_post %}
+	<h1>{{ fixed_post.title }}</h1>
         <img src="{{ fixed_post.image.url }}" class="rounded img-fluid post-image" style = "max-height: 500px;">
         <p>{{fixed_post.summary}}</p>
+	{% endif %}
         </div>
         <br><br>
         <div class="border"></div>
